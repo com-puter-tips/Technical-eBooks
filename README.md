@@ -3,6 +3,6 @@
 Sharing materials for learning new technologies.
 Books varying in size from 1 to 25 MB.
 
-* [https://github.com/devharsh/Technical-eBooks](https://github.com/devharsh/Technical-eBooks)
+* [https://github.com/com-puter-tips/Technical-eBooks](https://github.com/com-puter-tips/Technical-eBooks)
 
-* [http://devharsh.github.io/Technical-eBooks](http://devharsh.github.io/Technical-eBooks)
+* [https://com-puter-tips.github.io/Technical-eBooks/](https://com-puter-tips.github.io/Technical-eBooks/)
