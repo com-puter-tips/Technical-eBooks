@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this collection, please cite it using the metadata from this file."
+type: dataset
+title: "Technical-eBooks"
+abstract: "A curated collection of technical eBooks (PDFs) for learning programming and computer science topics. Copyright of each book remains with its respective author or publisher."
+authors:
+  - given-names: "Devharsh"
+    family-names: "Trivedi"
+    name-suffix: "Ph.D., CISSP"
+    email: "devharsh.1592@gmail.com"
+    city: "Washington"
+    region: "D.C."
+    post-code: "20003"
+    country: "US"
+date-released: "2016-05-10"
+license: "GPL-3.0"
+repository-code: "https://github.com/com-puter-tips/Technical-eBooks"
+url: "https://com-puter-tips.github.io/Technical-eBooks/"
+keywords:
+  - "ebooks"
+  - "pdf"
+  - "technical-ebooks"
+  - "programming"
+  - "learning-resources"
