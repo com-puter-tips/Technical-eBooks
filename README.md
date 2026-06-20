@@ -19,13 +19,13 @@ A free, curated, searchable library of **98 technical eBooks** for learning prog
 
 The 2 featured titles above are part of the collection; the 98 books below are grouped by category. Click any title to open the PDF.
 
-### 🔒 Security, Cryptography & Privacy (23)
+### 🔒 Security, Cryptography & Privacy (22)
 
 | Title | Size |
 |-------|------|
 | [7 Experts on Database Security](Ebook_%207%20Experts%20on%20Database%20Security.pdf) | 2.9 MB |
+| [A Graduate Course in Applied Cryptography (Boneh & Shoup)](draft_0_3.pdf) | 22.9 MB |
 | [A Pragmatic Introduction to Secure Multi-Party Computation](pragmaticmpc.pdf) | 1.3 MB |
-| [Achievements in Anonymity](Achievements%20in%20Anonymity%20%28gnv64%29.pdf) | 12.0 MB |
 | [Avoiding the Top 10 Software Security Design Flaws](top-10-software-security-design-flaws.pdf) | 2.0 MB |
 | [Crypto 101](Crypto101.pdf) | 15.7 MB |
 | [Crypto Basics: SGX and Remote Attestation](Lec4bCryptoBasicsSGXRemoteAttestation.pdf) | 1.8 MB |
@@ -34,14 +34,13 @@ The 2 featured titles above are part of the collection; the 98 books below are g
 | [Cybersecurity: Theory, Practice, and Ethics](Cybersecurity_Theory_Practice_Ethics.pdf) | 4.1 MB |
 | [Definitive Guide to SOC-as-a-Service](ZC0xweuTRnSEqR13skEv_Definitive%20Guide%20to%20SOC-as-a-Service.pdf) | 6.4 MB |
 | [Deploying Prisma Access at Palo Alto Networks](deploying-prisma-access-at-palo-alto-networks.pdf) | 3.2 MB |
-| [Enterprise Cyber Handbook](Cyber-Handbook-Enterprise.pdf) | 9.1 MB |
+| [EC-Council Cybersecurity Certification Handbook](Cyber-Handbook-Enterprise.pdf) | 9.1 MB |
 | [Firewall Buyer's Guide](firewall-buyers-guide.pdf) | 1.3 MB |
 | [How to Fight Misinformation Online](HowToFightMisinformationOnline.pdf) | 10.5 MB |
 | [Message Integrity](Message%20Integrity.pdf) | 1.0 MB |
 | [Navigating the SaaS Security Jungle](navigating-the-saas-security-jungle.pdf) | 1.5 MB |
 | [No Place to Hide (Robert O'Harrow)](No%20Place%20to%20Hide%20by%20Robert%20OHarrow%20%28z-lib.org%29.pdf) | 6.6 MB |
 | [Post-Quantum Cryptography: Current State and Quantum Mitigation (ENISA)](ENISA%20Report%20-%20Post-Quantum%20Cryptography%20Current%20state%20and%20quantum%20mitigation-V2.pdf) | 1.1 MB |
-| [Principles of Modern Cryptography](draft_0_3.pdf) | 22.9 MB |
 | [Ransomware Hostage Rescue Manual](RANSOMWARE%20Hostage%20Rescue%20Manual.pdf) | 4.0 MB |
 | [SEC401: Windows and Linux Tutorial](sec401-windows-linux-tutorial-v1.pdf) | 3.4 MB |
 | [Three Steps to Gain Control of Cloud Security](EB_FM_Three_Steps_to_Gain_Control_of_Cloud_Security_20191203%20%281%29.pdf) | 1.6 MB |
@@ -77,10 +76,10 @@ The 2 featured titles above are part of the collection; the 98 books below are g
 |-------|------|
 | [C++ Concurrency in Action](C%2B%2B%20Concurrency%20in%20Action.pdf) | 6.9 MB |
 | [C++ Language Tutorial](cplusplus.pdf) | 5.1 MB |
-| [C++14 - Peter Sommerlad (ACCU 2014)](ACCU2014_PeterSommerlad_C%2B%2B14.pdf) | 2.5 MB |
-| [Efficient C++ Programming Techniques (Addison-Wesley)](Addison%20Wesley%20-%20Effcient%20C%2B%2B%20Programming%20Techniques%20%20Ebook%20-%20fly.pdf) | 1.8 MB |
+| [C++14: An Overview and Its Implications (Sommerlad, ACCU 2014)](ACCU2014_PeterSommerlad_C%2B%2B14.pdf) | 2.5 MB |
+| [Efficient C++: Performance Programming Techniques (Bulka & Mayhew)](Addison%20Wesley%20-%20Effcient%20C%2B%2B%20Programming%20Techniques%20%20Ebook%20-%20fly.pdf) | 1.8 MB |
+| [Even Simpler C++ with C++14 (Sommerlad, ADC++ 2014)](ADCCPP2014_SimpleC%2B%2B14.pdf) | 2.7 MB |
 | [Programming in C](1-8-programming-c.pdf) | 8.1 MB |
-| [Simple C++14 (ADC++ 2014)](ADCCPP2014_SimpleC%2B%2B14.pdf) | 2.7 MB |
 
 ### 🔷 Programming - C# & .NET (5)
 
@@ -182,7 +181,7 @@ The 2 featured titles above are part of the collection; the 98 books below are g
 |-------|------|
 | [1001 Math Problems, 2nd Edition](1001_Math_Problems.pdf) | 1.7 MB |
 | [ACT Prep Book (Varsity Tutors)](varsity-tutors-act-book-first-edition.pdf) | 7.8 MB |
-| [GATE Prep (R. K. Kanodia)](Gate-by-Rk-Kanodia.pdf) | 6.6 MB |
+| [GATE Electronics & Communication (R. K. Kanodia)](Gate-by-Rk-Kanodia.pdf) | 6.6 MB |
 | [GRE Prep Book (Varsity Tutors)](varsity-tutors-gre-book-first-edition.pdf) | 5.5 MB |
 | [How to Calculate Quickly: Speed Arithmetic](How%20to%20Calculate%20Quickly%20-%20Full%20Course%20in%20Speed%20Arithmetic.pdf) | 5.3 MB |
 | [SAT Prep Book (Varsity Tutors)](varsity-tutors-sat-book-first-edition.pdf) | 4.1 MB |
@@ -200,10 +199,11 @@ The 2 featured titles above are part of the collection; the 98 books below are g
 | [Resume Development](Resume%20development.pdf) | 4.2 MB |
 | [The 200 Best Home Businesses](The%20200%20Best%20Home%20Businesses.pdf) | 2.1 MB |
 
-### 📚 Other & Reference (2)
+### 📚 Other & Reference (3)
 
 | Title | Size |
 |-------|------|
+| [Achievements in Anonymity: Unsung Indian Scientists](Achievements%20in%20Anonymity%20%28gnv64%29.pdf) | 12.0 MB |
 | [Intel Math Kernel Library for Windows OS (Developer Guide)](Intel%20Math%20Kernel%20Library%20for%20Windows%20OS.pdf) | 1.4 MB |
 | [MR Pulse Sequences](MR%20Pulse%20Sequences.pdf) | 2.2 MB |
 
