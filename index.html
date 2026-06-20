@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Technical eBooks - Curated Learning Library</title>
+<meta name="description" content="A curated, searchable library of 98 technical eBooks covering security, data science, programming, algorithms, DevOps and more. Maintained by Devharsh Trivedi.">
+<meta property="og:title" content="Technical eBooks - Curated Learning Library">
+<meta property="og:description" content="A curated, searchable library of 98 technical eBooks for learning programming and computer science.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://com-puter-tips.github.io/Technical-eBooks/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128218;</text></svg>">
+<style>
+:root{
+ --bg:#0b0f17; --bg2:#0e1320; --card:#141a27; --card2:#19202f; --line:#243047;
+ --tx:#e7ecf4; --mut:#9aa7bd; --acc:#4f8cff; --acc2:#22d3a6; --warn:#f0b429;
+ --rad:14px; --sh:0 6px 24px rgba(0,0,0,.28); --maxw:1140px;
+}
+[data-theme="light"]{
+ --bg:#f6f8fc; --bg2:#eef2f9; --card:#ffffff; --card2:#f3f6fc; --line:#e2e8f2;
+ --tx:#16202e; --mut:#5a6b85; --acc:#2563eb; --acc2:#0d9488; --sh:0 6px 22px rgba(20,40,80,.08);
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(180deg,var(--bg),var(--bg2) 60%);color:var(--tx);
+ font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+ -webkit-font-smoothing:antialiased;min-height:100vh}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+/* header */
+header.top{position:sticky;top:0;z-index:50;background:rgba(11,15,23,.82);backdrop-filter:blur(12px);
+ border-bottom:1px solid var(--line)}
+[data-theme="light"] header.top{background:rgba(246,248,252,.85)}
+.bar{display:flex;align-items:center;gap:14px;height:62px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.2px}
+.brand .logo{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--acc),var(--acc2));
+ display:grid;place-items:center;color:#fff;font-size:16px}
+.brand b{font-size:16px}
+.search{margin-left:auto;position:relative;flex:1;max-width:420px}
+.search input{width:100%;padding:10px 14px 10px 38px;border-radius:999px;border:1px solid var(--line);
+ background:var(--card);color:var(--tx);font-size:14px;outline:none}
+.search input:focus{border-color:var(--acc)}
+.search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);opacity:.55}
+.tg{border:1px solid var(--line);background:var(--card);color:var(--tx);width:38px;height:38px;border-radius:10px;
+ cursor:pointer;font-size:16px;display:grid;place-items:center}
+.tg:hover{border-color:var(--acc)}
+/* hero */
+.hero{padding:54px 0 26px;text-align:center}
+.hero h1{font-size:clamp(30px,5vw,46px);margin:0 0 10px;font-weight:800;letter-spacing:-.5px;
+ background:linear-gradient(120deg,var(--tx),var(--acc));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.sub{font-size:17px;color:var(--mut);max-width:680px;margin:0 auto 18px}
+.badges{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:16px}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:6px 13px;border-radius:999px;font-size:13px;
+ border:1px solid var(--line);background:var(--card);color:var(--tx)}
+.badge.acc{border-color:transparent;background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff}
+.badge b{font-weight:700}
+.stat{display:flex;gap:26px;justify-content:center;margin:26px 0 6px;flex-wrap:wrap}
+.stat div{text-align:center}
+.stat .n{font-size:26px;font-weight:800;color:var(--acc)}
+.stat .l{font-size:12px;color:var(--mut);text-transform:uppercase;letter-spacing:.6px}
+/* nav chips */
+.navwrap{position:sticky;top:62px;z-index:40;background:rgba(11,15,23,.82);backdrop-filter:blur(12px);
+ border-bottom:1px solid var(--line);padding:11px 0}
+[data-theme="light"] .navwrap{background:rgba(246,248,252,.85)}
+.navchips{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px;scrollbar-width:thin}
+.navchip{white-space:nowrap;border:1px solid var(--line);background:var(--card);color:var(--mut);
+ padding:7px 13px;border-radius:999px;font-size:13px;cursor:pointer;transition:.15s}
+.navchip:hover{color:var(--tx);border-color:var(--acc)}
+.navchip.active{background:var(--acc);border-color:var(--acc);color:#fff}
+.navchip .cnt{opacity:.7;font-size:11px;margin-left:2px}
+/* featured */
+.feat{padding:34px 0 8px}
+.sec-h{font-size:13px;text-transform:uppercase;letter-spacing:1.4px;color:var(--mut);margin:0 0 16px;font-weight:700}
+.feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.feat-card{position:relative;border:1px solid var(--line);border-radius:var(--rad);padding:22px;
+ background:linear-gradient(160deg,var(--card2),var(--card));box-shadow:var(--sh);overflow:hidden}
+.feat-card::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;
+ background:linear-gradient(90deg,var(--acc),var(--acc2))}
+.feat-badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;
+ color:var(--acc2);border:1px solid var(--acc2);border-radius:999px;padding:3px 10px;margin-bottom:10px}
+.feat-card h3{margin:0 0 8px;font-size:20px;line-height:1.3}
+.feat-blurb{color:var(--mut);font-size:14px;margin:0 0 14px}
+.feat-meta{display:flex;gap:8px;margin-bottom:14px}
+.chip-ghost{font-size:12px;color:var(--mut);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+.feat-actions{display:flex;gap:9px;flex-wrap:wrap}
+.btn{padding:9px 15px;border-radius:10px;font-size:13.5px;font-weight:600;cursor:pointer;border:1px solid transparent;transition:.15s}
+.btn-primary{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff}
+.btn-primary:hover{filter:brightness(1.08)}
+.btn-soft{background:var(--card);border-color:var(--line);color:var(--tx)}
+.btn-soft:hover{border-color:var(--acc)}
+/* grids */
+.catsec{padding:30px 0 6px;scroll-margin-top:130px}
+.cat-h{display:flex;align-items:center;gap:10px;font-size:21px;margin:0 0 16px;font-weight:700}
+.cat-ic{font-size:20px}
+.cat-count{font-size:12px;color:var(--mut);border:1px solid var(--line);border-radius:999px;padding:2px 9px;font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:13px}
+.card{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:14px;
+ background:var(--card);transition:.16s;min-height:78px}
+.card:hover{border-color:var(--acc);transform:translateY(-2px);box-shadow:var(--sh)}
+.card-ic{font-size:20px;flex:none;width:38px;height:38px;border-radius:9px;display:grid;place-items:center;
+ background:var(--card2)}
+.card-title{font-size:14.5px;font-weight:600;line-height:1.35;margin-bottom:6px}
+.card-meta{font-size:12px;color:var(--mut);display:flex;align-items:center;gap:7px}
+.card-meta .dl{color:var(--acc);font-weight:600}
+.card:hover .dl{text-decoration:underline}
+.dot{opacity:.5}
+.empty{display:none;text-align:center;color:var(--mut);padding:50px 0;font-size:15px}
+.empty.show{display:block}
+/* footer */
+footer{margin-top:46px;border-top:1px solid var(--line);background:var(--bg2)}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px;padding:40px 0}
+.foot h4{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--mut);margin:0 0 12px}
+.foot p{color:var(--mut);font-size:14px;margin:0 0 10px}
+.foot a.fl{display:block;color:var(--tx);font-size:14px;padding:4px 0;opacity:.85}
+.foot a.fl:hover{color:var(--acc);opacity:1}
+.cite{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px 15px;font-size:12.5px;
+ color:var(--mut);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;line-height:1.5;white-space:pre-wrap;word-break:break-word}
+.copy{border-top:1px solid var(--line);padding:16px 0;text-align:center;color:var(--mut);font-size:13px}
+@media(max-width:760px){.feat-grid{grid-template-columns:1fr}.foot{grid-template-columns:1fr}.search{max-width:none}}
+</style>
+</head>
+<body>
+<header class="top">
+ <div class="wrap bar">
+   <a class="brand" href="#"><span class="logo">&#128218;</span><b>Technical eBooks</b></a>
+   <div class="search">
+     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+     <input id="q" type="search" placeholder="Search 98 eBooks by title...">
+   </div>
+   <button class="tg" id="tg" title="Toggle theme">&#9728;</button>
+ </div>
+</header>
+
+<section class="hero">
+ <div class="wrap">
+   <h1>A Curated Technical eBook Library</h1>
+   <p class="sub">98 hand-picked PDFs spanning security, data science, programming, algorithms, DevOps, design and career growth. Browse, search, and read in your browser.</p>
+   <div class="badges">
+     <span class="badge acc"><b>98</b> eBooks</span>
+     <a class="badge" href="https://github.com/com-puter-tips/Technical-eBooks" target="_blank" rel="noopener">&#9733; GitHub Repo</a>
+     <a class="badge" href="https://zenodo.org/records/20673042" target="_blank" rel="noopener">DOI 10.5281/zenodo.20673041</a>
+     <a class="badge" href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=zxkRN_MAAAAJ&citation_for_view=zxkRN_MAAAAJ:cFHS6HbyZ2cC" target="_blank" rel="noopener">Google Scholar</a>
+     <a class="badge" href="https://www.gnu.org/licenses/gpl-3.0" target="_blank" rel="noopener">GPL-3.0</a>
+   </div>
+   <div class="stat">
+     <div><div class="n">98</div><div class="l">eBooks</div></div>
+     <div><div class="n">18</div><div class="l">Categories</div></div>
+     <div><div class="n">2</div><div class="l">Authored</div></div>
+   </div>
+ </div>
+</section>
+
+<div class="navwrap"><div class="wrap"><div class="navchips"><button class="navchip active" data-target="all">All</button>
+<button class="navchip" data-target="featured">★ Authored</button>
+<button class="navchip" data-target="cat-security--cryptography---privacy">🔒 Security, Cryptography &amp; Privacy <span class="cnt">22</span></button>
+<button class="navchip" data-target="cat-data-science---r">📊 Data Science &amp; R <span class="cnt">11</span></button>
+<button class="navchip" data-target="cat-machine-learning---ai">🤖 Machine Learning &amp; AI <span class="cnt">2</span></button>
+<button class="navchip" data-target="cat-programming---c---c">⚙️ Programming - C &amp; C++ <span class="cnt">6</span></button>
+<button class="navchip" data-target="cat-programming---c-----net">🔷 Programming - C# &amp; .NET <span class="cnt">5</span></button>
+<button class="navchip" data-target="cat-programming---java">☕ Programming - Java <span class="cnt">3</span></button>
+<button class="navchip" data-target="cat-programming---python">🐍 Programming - Python <span class="cnt">2</span></button>
+<button class="navchip" data-target="cat-programming---other-languages">💻 Programming - Other Languages <span class="cnt">2</span></button>
+<button class="navchip" data-target="cat-web---javascript">🌐 Web &amp; JavaScript <span class="cnt">4</span></button>
+<button class="navchip" data-target="cat-algorithms---cs-theory">🧩 Algorithms &amp; CS Theory <span class="cnt">2</span></button>
+<button class="navchip" data-target="cat-operating-systems---hardware">🖥️ Operating Systems &amp; Hardware <span class="cnt">3</span></button>
+<button class="navchip" data-target="cat-devops--cloud---tools">🛠️ DevOps, Cloud &amp; Tools <span class="cnt">7</span></button>
+<button class="navchip" data-target="cat-software-engineering---design">📐 Software Engineering &amp; Design <span class="cnt">4</span></button>
+<button class="navchip" data-target="cat-microsoft--windows---sharepoint">🪟 Microsoft, Windows &amp; SharePoint <span class="cnt">3</span></button>
+<button class="navchip" data-target="cat-computer-graphics---design">🎨 Computer Graphics &amp; Design <span class="cnt">4</span></button>
+<button class="navchip" data-target="cat-math---test-prep">📝 Math &amp; Test Prep <span class="cnt">7</span></button>
+<button class="navchip" data-target="cat-career---productivity">💼 Career &amp; Productivity <span class="cnt">7</span></button>
+<button class="navchip" data-target="cat-other---reference">📚 Other &amp; Reference <span class="cnt">2</span></button></div></div></div>
+
+<main class="wrap">
+ <div id="empty" class="empty">No eBooks match your search.</div>
+
+ <section class="feat" id="featured">
+   <h3 class="sec-h">&#9733; Featured - Authored by Devharsh Trivedi</h3>
+   <div class="feat-grid">
+      <article class="feat-card" data-title="cybersecurity: theory, practice, and ethics" data-cat="featured authored devharsh">
+        <div class="feat-badge">Authored</div>
+        <h3>Cybersecurity: Theory, Practice, and Ethics</h3>
+        <p class="feat-blurb">An open textbook by Devharsh Trivedi spanning the theory, hands-on practice, and professional ethics of cybersecurity for students and practitioners.</p>
+        <div class="feat-meta"><span class="chip chip-ghost">4.1 MB</span><span class="chip chip-ghost">PDF</span></div>
+        <div class="feat-actions">
+          <a class="btn btn-primary" href="Cybersecurity_Theory_Practice_Ethics.pdf" target="_blank" rel="noopener">Read PDF</a>
+          <a class="btn btn-soft" href="https://zenodo.org/records/20581926" target="_blank" rel="noopener">Zenodo DOI</a>
+          <a class="btn btn-soft" href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=zxkRN_MAAAAJ&amp;citation_for_view=zxkRN_MAAAAJ:HoB7MX3m0LUC" target="_blank" rel="noopener">Google Scholar</a>
+        </div>
+      </article>
+
+      <article class="feat-card" data-title="generative ai with amazon bedrock" data-cat="featured authored devharsh">
+        <div class="feat-badge">Authored</div>
+        <h3>Generative AI with Amazon Bedrock</h3>
+        <p class="feat-blurb">An open textbook by Devharsh Trivedi on generative AI and large language models, with hands-on material for building applications using Amazon Bedrock.</p>
+        <div class="feat-meta"><span class="chip chip-ghost">10.2 MB</span><span class="chip chip-ghost">PDF</span></div>
+        <div class="feat-actions">
+          <a class="btn btn-primary" href="Generative-AI-with-Amazon-Bedrock.pdf" target="_blank" rel="noopener">Read PDF</a>
+          <a class="btn btn-soft" href="https://zenodo.org/records/20652883" target="_blank" rel="noopener">Zenodo DOI</a>
+          <a class="btn btn-soft" href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=zxkRN_MAAAAJ&amp;citation_for_view=zxkRN_MAAAAJ:rO6llkc54NcC" target="_blank" rel="noopener">Google Scholar</a>
+        </div>
+      </article></div>
+ </section>
+
+ 
+    <section class="catsec" id="cat-security--cryptography---privacy" data-cat="cat-security--cryptography---privacy">
+      <h2 class="cat-h"><span class="cat-ic">🔒</span>Security, Cryptography &amp; Privacy<span class="cat-count">22</span></h2>
+      <div class="grid">
+        <a class="card" href="Ebook_%207%20Experts%20on%20Database%20Security.pdf" target="_blank" rel="noopener" data-title="7 experts on database security">
+          <div class="card-ic">🔒</div>
+          <div class="card-body">
+            <div class="card-title">7 Experts on Database Security</div>
+            <div class="card-meta"><span class="size">2.9 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="pragmaticmpc.pdf" target="_blank" rel="noopener" data-title="a pragmatic introduction to secure multi-party computation">
+          <div class="card-ic">🔒</div>
+          <div class="card-body">
+            <div class="card-title">A Pragmatic Introduction to Secure Multi-Party Computation</div>
+            <div class="card-meta"><span class="size">1.3 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="Achievements%20in%20Anonymity%20%28gnv64%29.pdf" target="_blank" rel="noopener" data-title="achievements in anonymity">
+          <div class="card-ic">🔒</div>
+          <div class="card-body">
+            <div class="card-title">Achievements in Anonymity</div>
+            <div class="card-meta"><span class="size">12.0 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="top-10-software-security-design-flaws.pdf" target="_blank" rel="noopener" data-title="avoiding the top 10 software security design flaws">
+          <div class="card-ic">🔒</div>
+          <div class="card-body">
+            <div class="card-title">Avoiding the Top 10 Software Security Design Flaws</div>
+            <div class="card-meta"><span class="size">2.0 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="Crypto101.pdf" target="_blank" rel="noopener" data-title="crypto 101">
+          <div class="card-ic">🔒</div>
+          <div class="card-body">
+            <div class="card-title">Crypto 101</div>
+            <div class="card-meta"><span class="size">15.7 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="Lec4bCryptoBasicsSGXRemoteAttestation.pdf" target="_blank" rel="noopener" data-title="crypto basics: sgx and remote attestation">
+          <div class="card-ic">🔒</div>
+          <div class="card-body">
+            <div class="card-title">Crypto Basics: SGX and Remote Attestation</div>
+            <div class="card-meta"><span class="size">1.8 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="Cryptographic%20Solutions%20for%20Cyber-Physical%20System%20Security.pdf" target="_blank" rel="noopener" data-title="cryptographic solutions for cyber-physical system security">
+          <div class="card-ic">🔒</div>
+          <div class="card-body">
+            <div class="card-title">Cryptographic Solutions for Cyber-Physical System Security</div>
+            <div class="card-meta"><span class="size">1.8 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="Cybersecurity%20101.pdf" target="_blank" rel="noopener" data-title="cybersecurity 101">
+          <div class="card-ic">🔒</div>
+          <div class="card-body">
+            <div class="card-title">Cybersecurity 101</div>
+            <div class="card-meta"><span class="size">3.3 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="ZC0xweuTRnSEqR13skEv_Definitive%20Guide%20to%20SOC-as-a-Service.pdf" target="_blank" rel="noopener" data-title="definitive guide to soc-as-a-service">
+          <div class="card-ic">🔒</div>
+          <div class="card-body">
+            <div class="card-title">Definitive Guide to SOC-as-a-Service</div>
+            <div class="card-meta"><span class="size">6.4 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="deploying-prisma-access-at-palo-alto-networks.pdf" target="_blank" rel="noopener" data-title="deploying prisma access at palo alto networks">
+          <div class="card-ic">🔒</div>
+          <div class="card-body">
+            <div class="card-title">Deploying Prisma Access at Palo Alto Networks</div>
+            <div class="card-meta"><span class="size">3.2 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="Cyber-Handbook-Enterprise.pdf" target="_blank" rel="noopener" data-title="enterprise cyber handbook">
+          <div class="card-ic">🔒</div>
+          <div class="card-body">
+            <div class="card-title">Enterprise Cyber Handbook</div>
+            <div class="card-meta"><span class="size">9.1 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="firewall-buyers-guide.pdf" target="_blank" rel="noopener" data-title="firewall buyer&#x27;s guide">
+          <div class="card-ic">🔒</div>
+          <div class="card-body">
+            <div class="card-title">Firewall Buyer&#x27;s Guide</div>
+            <div class="card-meta"><span class="size">1.3 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="HowToFightMisinformationOnline.pdf" target="_blank" rel="noopener" data-title="how to fight misinformation online">
+          <div class="card-ic">🔒</div>
+          <div class="card-body">
+            <div class="card-title">How to Fight Misinformation Online</div>
+            <div class="card-meta"><span class="size">10.5 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="Message%20Integrity.pdf" target="_blank" rel="noopener" data-title="message integrity">
+          <div class="card-ic">🔒</div>
+          <div class="card-body">
+            <div class="card-title">Message Integrity</div>
+            <div class="card-meta"><span class="size">1.0 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="navigating-the-saas-security-jungle.pdf" target="_blank" rel="noopener" data-title="navigating the saas security jungle">
+          <div class="card-ic">🔒</div>
+          <div class="card-body">
+            <div class="card-title">Navigating the SaaS Security Jungle</div>
+            <div class="card-meta"><span class="size">1.5 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="No%20Place%20to%20Hide%20by%20Robert%20OHarrow%20%28z-lib.org%29.pdf" target="_blank" rel="noopener" data-title="no place to hide (robert o&#x27;harrow)">
+          <div class="card-ic">🔒</div>
+          <div class="card-body">
+            <div class="card-title">No Place to Hide (Robert O&#x27;Harrow)</div>
+            <div class="card-meta"><span class="size">6.6 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="ENISA%20Report%20-%20Post-Quantum%20Cryptography%20Current%20state%20and%20quantum%20mitigation-V2.pdf" target="_blank" rel="noopener" data-title="post-quantum cryptography: current state and quantum mitigation (enisa)">
+          <div class="card-ic">🔒</div>
+          <div class="card-body">
+            <div class="card-title">Post-Quantum Cryptography: Current State and Quantum Mitigation (ENISA)</div>
+            <div class="card-meta"><span class="size">1.1 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="draft_0_3.pdf" target="_blank" rel="noopener" data-title="principles of modern cryptography">
+          <div class="card-ic">🔒</div>
+          <div class="card-body">
+            <div class="card-title">Principles of Modern Cryptography</div>
+            <div class="card-meta"><span class="size">22.9 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="RANSOMWARE%20Hostage%20Rescue%20Manual.pdf" target="_blank" rel="noopener" data-title="ransomware hostage rescue manual">
+          <div class="card-ic">🔒</div>
+          <div class="card-body">
+            <div class="card-title">Ransomware Hostage Rescue Manual</div>
+            <div class="card-meta"><span class="size">4.0 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="sec401-windows-linux-tutorial-v1.pdf" target="_blank" rel="noopener" data-title="sec401: windows and linux tutorial">
+          <div class="card-ic">🔒</div>
+          <div class="card-body">
+            <div class="card-title">SEC401: Windows and Linux Tutorial</div>
+            <div class="card-meta"><span class="size">3.4 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="EB_FM_Three_Steps_to_Gain_Control_of_Cloud_Security_20191203%20%281%29.pdf" target="_blank" rel="noopener" data-title="three steps to gain control of cloud security">
+          <div class="card-ic">🔒</div>
+          <div class="card-body">
+            <div class="card-title">Three Steps to Gain Control of Cloud Security</div>
+            <div class="card-meta"><span class="size">1.6 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="vm-for-dummies-2nd-edition-pdf.pdf" target="_blank" rel="noopener" data-title="vulnerability management for dummies, 2nd edition">
+          <div class="card-ic">🔒</div>
+          <div class="card-body">
+            <div class="card-title">Vulnerability Management for Dummies, 2nd Edition</div>
+            <div class="card-meta"><span class="size">2.7 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a></div>
+    </section>
+
+    <section class="catsec" id="cat-data-science---r" data-cat="cat-data-science---r">
+      <h2 class="cat-h"><span class="cat-ic">📊</span>Data Science &amp; R<span class="cat-count">11</span></h2>
+      <div class="grid">
+        <a class="card" href="An%20Introduction%20to%20Statistical%20Learning%20with%20Applications%20in%20R.pdf" target="_blank" rel="noopener" data-title="an introduction to statistical learning with applications in r">
+          <div class="card-ic">📊</div>
+          <div class="card-body">
+            <div class="card-title">An Introduction to Statistical Learning with Applications in R</div>
+            <div class="card-meta"><span class="size">9.4 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="Connecting%20the%20FSL%20Software%20with%20R.pdf" target="_blank" rel="noopener" data-title="connecting the fsl software with r">
+          <div class="card-ic">📊</div>
+          <div class="card-body">
+            <div class="card-title">Connecting the FSL Software with R</div>
+            <div class="card-meta"><span class="size">3.9 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="handout_ggplot2.pdf" target="_blank" rel="noopener" data-title="ggplot2 handout">
+          <div class="card-ic">📊</div>
+          <div class="card-body">
+            <div class="card-title">ggplot2 Handout</div>
+            <div class="card-meta"><span class="size">5.8 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="Introduction%20to%20R.Pdf" target="_blank" rel="noopener" data-title="introduction to r">
+          <div class="card-ic">📊</div>
+          <div class="card-body">
+            <div class="card-title">Introduction to R</div>
+            <div class="card-meta"><span class="size">4.9 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="Zhao_R_and_data_mining.pdf" target="_blank" rel="noopener" data-title="r and data mining: examples and case studies">
+          <div class="card-ic">📊</div>
+          <div class="card-body">
+            <div class="card-title">R and Data Mining: Examples and Case Studies</div>
+            <div class="card-meta"><span class="size">2.3 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="R%20Graphics%20Cookbook.pdf" target="_blank" rel="noopener" data-title="r graphics cookbook">
+          <div class="card-ic">📊</div>
+          <div class="card-body">
+            <div class="card-title">R Graphics Cookbook</div>
+            <div class="card-meta"><span class="size">8.9 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="R%20in%20Action.pdf" target="_blank" rel="noopener" data-title="r in action: data analysis and graphics with r">
+          <div class="card-ic">📊</div>
+          <div class="card-body">
+            <div class="card-title">R in Action: Data Analysis and Graphics with R</div>
+            <div class="card-meta"><span class="size">15.6 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="R_Succinctly.pdf" target="_blank" rel="noopener" data-title="r succinctly">
+          <div class="card-ic">📊</div>
+          <div class="card-body">
+            <div class="card-title">R Succinctly</div>
+            <div class="card-meta"><span class="size">4.1 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="Revolution%20R%20Enterprise.pdf" target="_blank" rel="noopener" data-title="revolution r enterprise">
+          <div class="card-ic">📊</div>
+          <div class="card-body">
+            <div class="card-title">Revolution R Enterprise</div>
+            <div class="card-meta"><span class="size">6.8 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="GUI%20Toolkit%20for%20R.pdf" target="_blank" rel="noopener" data-title="rgtk2: a gui toolkit for r">
+          <div class="card-ic">📊</div>
+          <div class="card-body">
+            <div class="card-title">RGtk2: A GUI Toolkit for R</div>
+            <div class="card-meta"><span class="size">1.1 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="shiny-cheatsheet.pdf" target="_blank" rel="noopener" data-title="shiny cheat sheet">
+          <div class="card-ic">📊</div>
+          <div class="card-body">
+            <div class="card-title">Shiny Cheat Sheet</div>
+            <div class="card-meta"><span class="size">3.1 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a></div>
+    </section>
+
+    <section class="catsec" id="cat-machine-learning---ai" data-cat="cat-machine-learning---ai">
+      <h2 class="cat-h"><span class="cat-ic">🤖</span>Machine Learning &amp; AI<span class="cat-count">2</span></h2>
+      <div class="grid">
+        <a class="card" href="Machine_Learning_Using_C_Sharp_Succinctly.pdf" target="_blank" rel="noopener" data-title="machine learning using c# succinctly">
+          <div class="card-ic">🤖</div>
+          <div class="card-body">
+            <div class="card-title">Machine Learning Using C# Succinctly</div>
+            <div class="card-meta"><span class="size">2.1 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="GeekGuide-Intel-MachineLearning.pdf" target="_blank" rel="noopener" data-title="machine learning with python (intel geekguide)">
+          <div class="card-ic">🤖</div>
+          <div class="card-body">
+            <div class="card-title">Machine Learning with Python (Intel GeekGuide)</div>
+            <div class="card-meta"><span class="size">1.8 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a></div>
+    </section>
+
+    <section class="catsec" id="cat-programming---c---c" data-cat="cat-programming---c---c">
+      <h2 class="cat-h"><span class="cat-ic">⚙️</span>Programming - C &amp; C++<span class="cat-count">6</span></h2>
+      <div class="grid">
+        <a class="card" href="C%2B%2B%20Concurrency%20in%20Action.pdf" target="_blank" rel="noopener" data-title="c++ concurrency in action">
+          <div class="card-ic">⚙️</div>
+          <div class="card-body">
+            <div class="card-title">C++ Concurrency in Action</div>
+            <div class="card-meta"><span class="size">6.9 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="cplusplus.pdf" target="_blank" rel="noopener" data-title="c++ language tutorial">
+          <div class="card-ic">⚙️</div>
+          <div class="card-body">
+            <div class="card-title">C++ Language Tutorial</div>
+            <div class="card-meta"><span class="size">5.1 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="ACCU2014_PeterSommerlad_C%2B%2B14.pdf" target="_blank" rel="noopener" data-title="c++14 - peter sommerlad (accu 2014)">
+          <div class="card-ic">⚙️</div>
+          <div class="card-body">
+            <div class="card-title">C++14 - Peter Sommerlad (ACCU 2014)</div>
+            <div class="card-meta"><span class="size">2.5 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="Addison%20Wesley%20-%20Effcient%20C%2B%2B%20Programming%20Techniques%20%20Ebook%20-%20fly.pdf" target="_blank" rel="noopener" data-title="efficient c++ programming techniques (addison-wesley)">
+          <div class="card-ic">⚙️</div>
+          <div class="card-body">
+            <div class="card-title">Efficient C++ Programming Techniques (Addison-Wesley)</div>
+            <div class="card-meta"><span class="size">1.8 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="1-8-programming-c.pdf" target="_blank" rel="noopener" data-title="programming in c">
+          <div class="card-ic">⚙️</div>
+          <div class="card-body">
+            <div class="card-title">Programming in C</div>
+            <div class="card-meta"><span class="size">8.1 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="ADCCPP2014_SimpleC%2B%2B14.pdf" target="_blank" rel="noopener" data-title="simple c++14 (adc++ 2014)">
+          <div class="card-ic">⚙️</div>
+          <div class="card-body">
+            <div class="card-title">Simple C++14 (ADC++ 2014)</div>
+            <div class="card-meta"><span class="size">2.7 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a></div>
+    </section>
+
+    <section class="catsec" id="cat-programming---c-----net" data-cat="cat-programming---c-----net">
+      <h2 class="cat-h"><span class="cat-ic">🔷</span>Programming - C# &amp; .NET<span class="cat-count">5</span></h2>
+      <div class="grid">
+        <a class="card" href="C%23%202.0%20-%20The%20Complete%20Reference.pdf" target="_blank" rel="noopener" data-title="c# 2.0: the complete reference">
+          <div class="card-ic">🔷</div>
+          <div class="card-body">
+            <div class="card-title">C# 2.0: The Complete Reference</div>
+            <div class="card-meta"><span class="size">4.4 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="McGraw.Hill.CSharp.4.0.The.Complete.Reference.Apr.2010.pdf" target="_blank" rel="noopener" data-title="c# 4.0: the complete reference (mcgraw-hill)">
+          <div class="card-ic">🔷</div>
+          <div class="card-body">
+            <div class="card-title">C# 4.0: The Complete Reference (McGraw-Hill)</div>
+            <div class="card-meta"><span class="size">5.1 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="EffectvCShrp.pdf" target="_blank" rel="noopener" data-title="effective c#: 50 specific ways to improve your c#">
+          <div class="card-ic">🔷</div>
+          <div class="card-body">
+            <div class="card-title">Effective C#: 50 Specific Ways to Improve Your C#</div>
+            <div class="card-meta"><span class="size">1.9 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="microsoft_visual_c-sharp__2013_step_by_step.pdf" target="_blank" rel="noopener" data-title="microsoft visual c# 2013 step by step">
+          <div class="card-ic">🔷</div>
+          <div class="card-body">
+            <div class="card-title">Microsoft Visual C# 2013 Step by Step</div>
+            <div class="card-meta"><span class="size">17.0 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="Sample-Writing-High-Performance-.NET-Code-Ben-Watson.pdf" target="_blank" rel="noopener" data-title="writing high-performance .net code (ben watson)">
+          <div class="card-ic">🔷</div>
+          <div class="card-body">
+            <div class="card-title">Writing High-Performance .NET Code (Ben Watson)</div>
+            <div class="card-meta"><span class="size">1.7 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a></div>
+    </section>
+
+    <section class="catsec" id="cat-programming---java" data-cat="cat-programming---java">
+      <h2 class="cat-h"><span class="cat-ic">☕</span>Programming - Java<span class="cat-count">3</span></h2>
+      <div class="grid">
+        <a class="card" href="1000_Java_Tips_low.pdf" target="_blank" rel="noopener" data-title="1000 java tips">
+          <div class="card-ic">☕</div>
+          <div class="card-body">
+            <div class="card-title">1000 Java Tips</div>
+            <div class="card-meta"><span class="size">10.1 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="0132130807Java_ProgrammingB.pdf" target="_blank" rel="noopener" data-title="java programming">
+          <div class="card-ic">☕</div>
+          <div class="card-body">
+            <div class="card-title">Java Programming</div>
+            <div class="card-meta"><span class="size">18.8 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="Java%20-%20J2EE%20-%20Teach%20Yourself%20J2EE%20in%2021%20Days%20-%20Sams.pdf" target="_blank" rel="noopener" data-title="teach yourself j2ee in 21 days (sams)">
+          <div class="card-ic">☕</div>
+          <div class="card-body">
+            <div class="card-title">Teach Yourself J2EE in 21 Days (Sams)</div>
+            <div class="card-meta"><span class="size">12.5 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a></div>
+    </section>
+
+    <section class="catsec" id="cat-programming---python" data-cat="cat-programming---python">
+      <h2 class="cat-h"><span class="cat-ic">🐍</span>Programming - Python<span class="cat-count">2</span></h2>
+      <div class="grid">
+        <a class="card" href="GettingStartedwithPython.pdf" target="_blank" rel="noopener" data-title="getting started with python">
+          <div class="card-ic">🐍</div>
+          <div class="card-body">
+            <div class="card-title">Getting Started with Python</div>
+            <div class="card-meta"><span class="size">2.3 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="Python_Succinctly.pdf" target="_blank" rel="noopener" data-title="python succinctly">
+          <div class="card-ic">🐍</div>
+          <div class="card-body">
+            <div class="card-title">Python Succinctly</div>
+            <div class="card-meta"><span class="size">2.0 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a></div>
+    </section>
+
+    <section class="catsec" id="cat-programming---other-languages" data-cat="cat-programming---other-languages">
+      <h2 class="cat-h"><span class="cat-ic">💻</span>Programming - Other Languages<span class="cat-count">2</span></h2>
+      <div class="grid">
+        <a class="card" href="Go_in_Practice.pdf" target="_blank" rel="noopener" data-title="go in practice">
+          <div class="card-ic">💻</div>
+          <div class="card-body">
+            <div class="card-title">Go in Practice</div>
+            <div class="card-meta"><span class="size">8.2 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="Ruby%20Under%20a%20Microscope-%20Learning%20Ruby%20Internals%20Through%20Experiment%20-%20Pat%20Shaughnessy-signed.pdf" target="_blank" rel="noopener" data-title="ruby under a microscope">
+          <div class="card-ic">💻</div>
+          <div class="card-body">
+            <div class="card-title">Ruby Under a Microscope</div>
+            <div class="card-meta"><span class="size">12.3 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a></div>
+    </section>
+
+    <section class="catsec" id="cat-web---javascript" data-cat="cat-web---javascript">
+      <h2 class="cat-h"><span class="cat-ic">🌐</span>Web &amp; JavaScript<span class="cat-count">4</span></h2>
+      <div class="grid">
+        <a class="card" href="FULL%20STACK%20JAVASCRIPT%20DEVELOPMENT%20WITH%20MEAN.pdf" target="_blank" rel="noopener" data-title="full stack javascript development with mean">
+          <div class="card-ic">🌐</div>
+          <div class="card-body">
+            <div class="card-title">Full Stack JavaScript Development with MEAN</div>
+            <div class="card-meta"><span class="size">5.1 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="nodejs_tutorial.pdf" target="_blank" rel="noopener" data-title="node.js tutorial">
+          <div class="card-ic">🌐</div>
+          <div class="card-body">
+            <div class="card-title">Node.js Tutorial</div>
+            <div class="card-meta"><span class="size">2.1 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="rapidjson-en.pdf" target="_blank" rel="noopener" data-title="rapidjson documentation">
+          <div class="card-ic">🌐</div>
+          <div class="card-body">
+            <div class="card-title">RapidJSON Documentation</div>
+            <div class="card-meta"><span class="size">1.5 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="The%20Ultimate%20Guide%20to%20React%20Native%20Optimization%202023%20Edition.pdf" target="_blank" rel="noopener" data-title="the ultimate guide to react native optimization (2023)">
+          <div class="card-ic">🌐</div>
+          <div class="card-body">
+            <div class="card-title">The Ultimate Guide to React Native Optimization (2023)</div>
+            <div class="card-meta"><span class="size">18.9 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a></div>
+    </section>
+
+    <section class="catsec" id="cat-algorithms---cs-theory" data-cat="cat-algorithms---cs-theory">
+      <h2 class="cat-h"><span class="cat-ic">🧩</span>Algorithms &amp; CS Theory<span class="cat-count">2</span></h2>
+      <div class="grid">
+        <a class="card" href="algorithm%20analysis%20and%20design.pdf" target="_blank" rel="noopener" data-title="design and analysis of algorithms">
+          <div class="card-ic">🧩</div>
+          <div class="card-body">
+            <div class="card-title">Design and Analysis of Algorithms</div>
+            <div class="card-meta"><span class="size">8.3 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="Introduction_to_algorithms-3rd%20Edition.pdf" target="_blank" rel="noopener" data-title="introduction to algorithms, 3rd edition">
+          <div class="card-ic">🧩</div>
+          <div class="card-body">
+            <div class="card-title">Introduction to Algorithms, 3rd Edition</div>
+            <div class="card-meta"><span class="size">5.6 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a></div>
+    </section>
+
+    <section class="catsec" id="cat-operating-systems---hardware" data-cat="cat-operating-systems---hardware">
+      <h2 class="cat-h"><span class="cat-ic">🖥️</span>Operating Systems &amp; Hardware<span class="cat-count">3</span></h2>
+      <div class="grid">
+        <a class="card" href="date_computer_communication_8th%28william_stallings%29.pdf" target="_blank" rel="noopener" data-title="data and computer communications, 8th edition (stallings)">
+          <div class="card-ic">🖥️</div>
+          <div class="card-body">
+            <div class="card-title">Data and Computer Communications, 8th Edition (Stallings)</div>
+            <div class="card-meta"><span class="size">1.5 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="Operating%2BSystems%2B-%2BA%2BConcept-based%2BApproach%2Bby%2BDhamdhere.D.M.pdf" target="_blank" rel="noopener" data-title="operating systems: a concept-based approach (dhamdhere)">
+          <div class="card-ic">🖥️</div>
+          <div class="card-body">
+            <div class="card-title">Operating Systems: A Concept-Based Approach (Dhamdhere)</div>
+            <div class="card-meta"><span class="size">23.1 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="The%20Ultimate%20Computer%20Repair%20Guide-slicer.pdf" target="_blank" rel="noopener" data-title="the ultimate computer repair guide">
+          <div class="card-ic">🖥️</div>
+          <div class="card-body">
+            <div class="card-title">The Ultimate Computer Repair Guide</div>
+            <div class="card-meta"><span class="size">6.1 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a></div>
+    </section>
+
+    <section class="catsec" id="cat-devops--cloud---tools" data-cat="cat-devops--cloud---tools">
+      <h2 class="cat-h"><span class="cat-ic">🛠️</span>DevOps, Cloud &amp; Tools<span class="cat-count">7</span></h2>
+      <div class="grid">
+        <a class="card" href="Git-branching-model.pdf" target="_blank" rel="noopener" data-title="a successful git branching model">
+          <div class="card-ic">🛠️</div>
+          <div class="card-body">
+            <div class="card-title">A Successful Git Branching Model</div>
+            <div class="card-meta"><span class="size">4.1 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="O%27Reilly%20Architecting%20for%20Scale.pdf" target="_blank" rel="noopener" data-title="architecting for scale (o&#x27;reilly)">
+          <div class="card-ic">🛠️</div>
+          <div class="card-body">
+            <div class="card-title">Architecting for Scale (O&#x27;Reilly)</div>
+            <div class="card-meta"><span class="size">4.7 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="CLEARCASE%20REFERENCE%20MANUAL.pdf" target="_blank" rel="noopener" data-title="clearcase reference manual">
+          <div class="card-ic">🛠️</div>
+          <div class="card-body">
+            <div class="card-title">ClearCase Reference Manual</div>
+            <div class="card-meta"><span class="size">2.8 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="DevOps-Overture-Shawn-Doyle-pdf.pdf" target="_blank" rel="noopener" data-title="devops overture: starting a devops journey">
+          <div class="card-ic">🛠️</div>
+          <div class="card-body">
+            <div class="card-title">DevOps Overture: Starting a DevOps Journey</div>
+            <div class="card-meta"><span class="size">2.2 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="From%20Agile%20to%20DevOps%20at%20Microsoft%20Developer%20Division.pdf" target="_blank" rel="noopener" data-title="from agile to devops at microsoft developer division">
+          <div class="card-ic">🛠️</div>
+          <div class="card-body">
+            <div class="card-title">From Agile to DevOps at Microsoft Developer Division</div>
+            <div class="card-meta"><span class="size">3.4 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="RabbitMQ_Succinctly.pdf" target="_blank" rel="noopener" data-title="message queuing with rabbitmq succinctly">
+          <div class="card-ic">🛠️</div>
+          <div class="card-body">
+            <div class="card-title">Message Queuing with RabbitMQ Succinctly</div>
+            <div class="card-meta"><span class="size">2.7 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="progit-en.1084.pdf" target="_blank" rel="noopener" data-title="pro git">
+          <div class="card-ic">🛠️</div>
+          <div class="card-body">
+            <div class="card-title">Pro Git</div>
+            <div class="card-meta"><span class="size">8.0 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a></div>
+    </section>
+
+    <section class="catsec" id="cat-software-engineering---design" data-cat="cat-software-engineering---design">
+      <h2 class="cat-h"><span class="cat-ic">📐</span>Software Engineering &amp; Design<span class="cat-count">4</span></h2>
+      <div class="grid">
+        <a class="card" href="Agile%20Methodologies.pdf" target="_blank" rel="noopener" data-title="agile methodologies">
+          <div class="card-ic">📐</div>
+          <div class="card-body">
+            <div class="card-title">Agile Methodologies</div>
+            <div class="card-meta"><span class="size">1.2 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="Agile_Software_Development_Succinctly.pdf" target="_blank" rel="noopener" data-title="agile software development succinctly">
+          <div class="card-ic">📐</div>
+          <div class="card-body">
+            <div class="card-title">Agile Software Development Succinctly</div>
+            <div class="card-meta"><span class="size">1.4 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="Documentation%20on%20Design%20Patterns.pdf" target="_blank" rel="noopener" data-title="documentation on design patterns">
+          <div class="card-ic">📐</div>
+          <div class="card-body">
+            <div class="card-title">Documentation on Design Patterns</div>
+            <div class="card-meta"><span class="size">2.9 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="49760660-Software-Engineering-Testing.pdf" target="_blank" rel="noopener" data-title="software engineering and testing: an introduction">
+          <div class="card-ic">📐</div>
+          <div class="card-body">
+            <div class="card-title">Software Engineering and Testing: An Introduction</div>
+            <div class="card-meta"><span class="size">12.5 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a></div>
+    </section>
+
+    <section class="catsec" id="cat-microsoft--windows---sharepoint" data-cat="cat-microsoft--windows---sharepoint">
+      <h2 class="cat-h"><span class="cat-ic">🪟</span>Microsoft, Windows &amp; SharePoint<span class="cat-count">3</span></h2>
+      <div class="grid">
+        <a class="card" href="Dev_Windows_8_apps_Getting_Started_Guide.pdf" target="_blank" rel="noopener" data-title="developing windows 8 apps: getting started guide">
+          <div class="card-ic">🪟</div>
+          <div class="card-body">
+            <div class="card-title">Developing Windows 8 Apps: Getting Started Guide</div>
+            <div class="card-meta"><span class="size">1.4 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="Microsoft%20SharePoint%202013%20Developer%20Reference.pdf" target="_blank" rel="noopener" data-title="microsoft sharepoint 2013 developer reference">
+          <div class="card-ic">🪟</div>
+          <div class="card-body">
+            <div class="card-title">Microsoft SharePoint 2013 Developer Reference</div>
+            <div class="card-meta"><span class="size">24.4 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="SharePoint-eBook-.pdf" target="_blank" rel="noopener" data-title="sharepoint ebook">
+          <div class="card-ic">🪟</div>
+          <div class="card-body">
+            <div class="card-title">SharePoint eBook</div>
+            <div class="card-meta"><span class="size">7.3 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a></div>
+    </section>
+
+    <section class="catsec" id="cat-computer-graphics---design" data-cat="cat-computer-graphics---design">
+      <h2 class="cat-h"><span class="cat-ic">🎨</span>Computer Graphics &amp; Design<span class="cat-count">4</span></h2>
+      <div class="grid">
+        <a class="card" href="computergraphics-c-version-100827131453-phpapp01.pdf" target="_blank" rel="noopener" data-title="computer graphics: c version, 2nd edition">
+          <div class="card-ic">🎨</div>
+          <div class="card-body">
+            <div class="card-title">Computer Graphics: C Version, 2nd Edition</div>
+            <div class="card-meta"><span class="size">21.1 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="Sclaroff%20S.%2C%20Generalized%20implicit%20functions%20for%20computer%20graphics.pdf" target="_blank" rel="noopener" data-title="generalized implicit functions for computer graphics">
+          <div class="card-ic">🎨</div>
+          <div class="card-body">
+            <div class="card-title">Generalized Implicit Functions for Computer Graphics</div>
+            <div class="card-meta"><span class="size">3.5 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="Mastering%20Photoshop%20for%20Web%20Design.pdf" target="_blank" rel="noopener" data-title="mastering photoshop for web design">
+          <div class="card-ic">🎨</div>
+          <div class="card-body">
+            <div class="card-title">Mastering Photoshop for Web Design</div>
+            <div class="card-meta"><span class="size">10.7 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="The.Photoshop.CS5.Pocket.Guide.pdf" target="_blank" rel="noopener" data-title="the photoshop cs5 pocket guide">
+          <div class="card-ic">🎨</div>
+          <div class="card-body">
+            <div class="card-title">The Photoshop CS5 Pocket Guide</div>
+            <div class="card-meta"><span class="size">5.7 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a></div>
+    </section>
+
+    <section class="catsec" id="cat-math---test-prep" data-cat="cat-math---test-prep">
+      <h2 class="cat-h"><span class="cat-ic">📝</span>Math &amp; Test Prep<span class="cat-count">7</span></h2>
+      <div class="grid">
+        <a class="card" href="1001_Math_Problems.pdf" target="_blank" rel="noopener" data-title="1001 math problems, 2nd edition">
+          <div class="card-ic">📝</div>
+          <div class="card-body">
+            <div class="card-title">1001 Math Problems, 2nd Edition</div>
+            <div class="card-meta"><span class="size">1.7 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="varsity-tutors-act-book-first-edition.pdf" target="_blank" rel="noopener" data-title="act prep book (varsity tutors)">
+          <div class="card-ic">📝</div>
+          <div class="card-body">
+            <div class="card-title">ACT Prep Book (Varsity Tutors)</div>
+            <div class="card-meta"><span class="size">7.8 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="Gate-by-Rk-Kanodia.pdf" target="_blank" rel="noopener" data-title="gate prep (r. k. kanodia)">
+          <div class="card-ic">📝</div>
+          <div class="card-body">
+            <div class="card-title">GATE Prep (R. K. Kanodia)</div>
+            <div class="card-meta"><span class="size">6.6 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="varsity-tutors-gre-book-first-edition.pdf" target="_blank" rel="noopener" data-title="gre prep book (varsity tutors)">
+          <div class="card-ic">📝</div>
+          <div class="card-body">
+            <div class="card-title">GRE Prep Book (Varsity Tutors)</div>
+            <div class="card-meta"><span class="size">5.5 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="How%20to%20Calculate%20Quickly%20-%20Full%20Course%20in%20Speed%20Arithmetic.pdf" target="_blank" rel="noopener" data-title="how to calculate quickly: speed arithmetic">
+          <div class="card-ic">📝</div>
+          <div class="card-body">
+            <div class="card-title">How to Calculate Quickly: Speed Arithmetic</div>
+            <div class="card-meta"><span class="size">5.3 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="varsity-tutors-sat-book-first-edition.pdf" target="_blank" rel="noopener" data-title="sat prep book (varsity tutors)">
+          <div class="card-ic">📝</div>
+          <div class="card-body">
+            <div class="card-title">SAT Prep Book (Varsity Tutors)</div>
+            <div class="card-meta"><span class="size">4.1 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="The%204000%20English%20Words%20Essential%20for%20an%20Educated%20Vocabulary.pdf" target="_blank" rel="noopener" data-title="the 4000 english words essential for an educated vocabulary">
+          <div class="card-ic">📝</div>
+          <div class="card-body">
+            <div class="card-title">The 4000 English Words Essential for an Educated Vocabulary</div>
+            <div class="card-meta"><span class="size">1.7 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a></div>
+    </section>
+
+    <section class="catsec" id="cat-career---productivity" data-cat="cat-career---productivity">
+      <h2 class="cat-h"><span class="cat-ic">💼</span>Career &amp; Productivity<span class="cat-count">7</span></h2>
+      <div class="grid">
+        <a class="card" href="100%20Must-read%20Life-Changing%20Books.pdf" target="_blank" rel="noopener" data-title="100 must-read life-changing books">
+          <div class="card-ic">💼</div>
+          <div class="card-body">
+            <div class="card-title">100 Must-Read Life-Changing Books</div>
+            <div class="card-meta"><span class="size">1.2 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="24-mortgage-tips-and-tricks.pdf" target="_blank" rel="noopener" data-title="24 mortgage tips and tricks">
+          <div class="card-ic">💼</div>
+          <div class="card-body">
+            <div class="card-title">24 Mortgage Tips and Tricks</div>
+            <div class="card-meta"><span class="size">1.6 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="How%20to%20Answer%20Hard%20Interview%20Questions%20And%20Everything%20Else%20You%20Need%20to%20Know%20to%20Get%20the%20Job%20You%20Want.pdf" target="_blank" rel="noopener" data-title="how to answer hard interview questions">
+          <div class="card-ic">💼</div>
+          <div class="card-body">
+            <div class="card-title">How to Answer Hard Interview Questions</div>
+            <div class="card-meta"><span class="size">2.0 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="How%20to%20Instantly%20Connect%20with%20Anyone%2096%20All-New%20Little%20Tricks%20for%20Big%20Success%20in%20Relationships.pdf" target="_blank" rel="noopener" data-title="how to instantly connect with anyone">
+          <div class="card-ic">💼</div>
+          <div class="card-body">
+            <div class="card-title">How to Instantly Connect with Anyone</div>
+            <div class="card-meta"><span class="size">5.1 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="How%20to%20Win%20Every%20Argument.pdf" target="_blank" rel="noopener" data-title="how to win every argument: the use and abuse of logic">
+          <div class="card-ic">💼</div>
+          <div class="card-body">
+            <div class="card-title">How to Win Every Argument: The Use and Abuse of Logic</div>
+            <div class="card-meta"><span class="size">2.5 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="Resume%20development.pdf" target="_blank" rel="noopener" data-title="resume development">
+          <div class="card-ic">💼</div>
+          <div class="card-body">
+            <div class="card-title">Resume Development</div>
+            <div class="card-meta"><span class="size">4.2 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="The%20200%20Best%20Home%20Businesses.pdf" target="_blank" rel="noopener" data-title="the 200 best home businesses">
+          <div class="card-ic">💼</div>
+          <div class="card-body">
+            <div class="card-title">The 200 Best Home Businesses</div>
+            <div class="card-meta"><span class="size">2.1 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a></div>
+    </section>
+
+    <section class="catsec" id="cat-other---reference" data-cat="cat-other---reference">
+      <h2 class="cat-h"><span class="cat-ic">📚</span>Other &amp; Reference<span class="cat-count">2</span></h2>
+      <div class="grid">
+        <a class="card" href="Intel%20Math%20Kernel%20Library%20for%20Windows%20OS.pdf" target="_blank" rel="noopener" data-title="intel math kernel library for windows os (developer guide)">
+          <div class="card-ic">📚</div>
+          <div class="card-body">
+            <div class="card-title">Intel Math Kernel Library for Windows OS (Developer Guide)</div>
+            <div class="card-meta"><span class="size">1.4 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="MR%20Pulse%20Sequences.pdf" target="_blank" rel="noopener" data-title="mr pulse sequences">
+          <div class="card-ic">📚</div>
+          <div class="card-body">
+            <div class="card-title">MR Pulse Sequences</div>
+            <div class="card-meta"><span class="size">2.2 MB</span><span class="dot">&middot;</span><span class="dl">Open PDF &rarr;</span></div>
+          </div>
+        </a></div>
+    </section>
+</main>
+
+<footer>
+ <div class="wrap foot">
+   <div>
+     <h4>About</h4>
+     <p>Technical eBooks is a curated collection of PDFs for learning programming and computer science, maintained by Devharsh Trivedi, Ph.D., CISSP.</p>
+     <p><b>Copyright:</b> these PDFs are shared for educational purposes only. Copyright of each book remains with its respective author or publisher. Rights holders may open an issue to request removal.</p>
+   </div>
+   <div>
+     <h4>Links</h4>
+     <a class="fl" href="https://github.com/com-puter-tips/Technical-eBooks" target="_blank" rel="noopener">GitHub Repository</a>
+     <a class="fl" href="https://zenodo.org/records/20673042" target="_blank" rel="noopener">Zenodo Record</a>
+     <a class="fl" href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=zxkRN_MAAAAJ&citation_for_view=zxkRN_MAAAAJ:cFHS6HbyZ2cC" target="_blank" rel="noopener">Google Scholar</a>
+     <a class="fl" href="https://github.com/com-puter-tips/Technical-eBooks/blob/master/CODE_OF_CONDUCT.md" target="_blank" rel="noopener">Code of Conduct</a>
+     <a class="fl" href="https://github.com/com-puter-tips/Technical-eBooks/blob/master/CONTRIBUTING.md" target="_blank" rel="noopener">Contributing</a>
+   </div>
+   <div>
+     <h4>Cite this collection</h4>
+     <div class="cite">Trivedi, Devharsh. Technical-eBooks.
+DOI: 10.5281/zenodo.20673041
+https://zenodo.org/records/20673042</div>
+   </div>
+ </div>
+ <div class="copy">&copy; 2026 Devharsh Trivedi &middot; Licensed GPL-3.0 &middot; Built for the community</div>
+</footer>
+<script>
+(function(){
+ var root=document.documentElement;
+ var saved=localStorage.getItem('teb-theme');
+ if(saved) root.setAttribute('data-theme',saved);
+ document.getElementById('tg').addEventListener('click',function(){
+   var cur=root.getAttribute('data-theme')==='light'?'dark':'light';
+   root.setAttribute('data-theme',cur);localStorage.setItem('teb-theme',cur);
+   this.textContent=cur==='light'?'☾':'☀';
+ });
+ // search
+ var q=document.getElementById('q'), empty=document.getElementById('empty');
+ function norm(s){return (s||'').toLowerCase();}
+ q.addEventListener('input',function(){
+   var v=norm(q.value).trim(), any=false;
+   document.querySelectorAll('.catsec, .feat').forEach(function(sec){
+     var vis=0;
+     sec.querySelectorAll('[data-title]').forEach(function(el){
+       var m=!v || el.getAttribute('data-title').indexOf(v)>-1;
+       el.style.display=m?'':'none'; if(m)vis++;
+     });
+     sec.style.display=vis?'':'none'; if(vis)any=true;
+   });
+   empty.classList.toggle('show',!any);
+ });
+ // nav chips
+ var chips=document.querySelectorAll('.navchip');
+ chips.forEach(function(ch){ch.addEventListener('click',function(){
+   chips.forEach(c=>c.classList.remove('active')); ch.classList.add('active');
+   var t=ch.getAttribute('data-target');
+   if(t==='all'){window.scrollTo({top:0,behavior:'smooth'});return;}
+   if(t==='featured'){document.getElementById('featured').scrollIntoView({behavior:'smooth'});return;}
+   var el=document.getElementById(t); if(el)el.scrollIntoView({behavior:'smooth'});
+ });});
+})();
+</script>
+</body>
+</html>
